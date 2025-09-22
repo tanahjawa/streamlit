@@ -40,8 +40,8 @@ def main():
         about_the_dataset()
     elif selected == "Deteksi Kardiovaskular":
         heart_disease_prediction_page()
-    elif selected == "Chatbot":
-        chatbot_page()
+    # elif selected == "Chatbot":
+    #     chatbot_page()
 
 if __name__ == "__main__":
     main()
