@@ -43,9 +43,9 @@ def prob(prediction_proba):
 
 
 def heart_disease_prediction_page():
-    st.title("💓 Deteksi Dini Risiko Penyakit Kardiovaskular")
+    st.title("Prediksi Risiko Kardiovaskular")
     st.markdown("""
-    Aplikasi ini membantu Anda mengetahui **perkiraan risiko penyakit kardiovaskular** berdasarkan data kesehatan dasar.  
+    Aplikasi ini membantu Anda mengetahui **perkiraan risiko kardiovaskular** berdasarkan data kesehatan dasar.  
     """)
 
     st.header("🔎 Masukkan Faktor Risiko Kesehatan")
@@ -70,11 +70,9 @@ def heart_disease_prediction_page():
     # ================= KONDISI KLINIS =================
     st.subheader("🩺 Kondisi Klinis")
     st.markdown("""
-    Bagian ini berisi data hasil pemeriksaan medis dasar seperti tekanan darah, kolesterol, dan gula darah. Jika Anda belum memiliki hasil tes terbaru, Anda tetap bisa memilih kategori yang paling mendekati kondisi saat ini. Sebagai panduan, silakan lihat tabel kategori di bawah ini, atau gunakan tombol 📌 Lihat Detail untuk informasi gejala yang lebih lengkap.
+    Bagian ini berisi data hasil pemeriksaan medis dasar seperti tekanan darah, kolesterol, dan gula darah. Jika Anda belum memiliki hasil tes terbaru, Anda tetap bisa memilih kategori yang paling mendekati kondisi saat ini. Sebagai panduan, silakan lihat **tabel kategori** di bawah ini, atau gunakan tombol **Lihat Detail** untuk informasi gejala yang lebih lengkap.
 
     """)
-
-
 
     with st.expander("🩸 Tekanan Darah", expanded=st.session_state.expand_bp):
         bp_input = st.text_input("Masukkan tekanan darah (contoh: 120/80)", value="", placeholder="Contoh Format: 120/80")
@@ -87,29 +85,8 @@ def heart_disease_prediction_page():
 
         # 🆕 Tambahkan penjelasan singkat di sini
         st.info(
-            "ℹ️ Inputkan nilai tekanan darah terkini (setelah tes). Jika belum ada, gunakan tombol 📌 Lihat Detail Tekanan Darah untuk menentukan nilainya."
+            "ℹ️ Inputkan nilai tekanan darah terkini (setelah tes). Jika belum ada, gunakan tombol **Lihat Detail Tekanan Darah** untuk menentukan nilainya."
         )
-
-        st.subheader("📌 Tekanan Darah")
-        st.markdown("""
-        Berikut adalah kategori tekanan darah menurut American Heart Association (dikutip dari [EatingWell](https://www.eatingwell.com/low-blood-pressure-symptoms-8580291)):
-        """)
-        st.subheader("📊 Kategori Tekanan Darah")
-        st.markdown("""
-        <table style="width:100%; border-collapse: collapse; border-radius: 10px; overflow: hidden; border:1px solid #ddd;">
-            <tr style="background-color:#fce8eb;">
-                <th style="padding:8px; border:1px solid #ddd;">Kategori</th>
-                <th style="padding:8px; border:1px solid #ddd;">Sistolik (mmHg) angka atas</th>
-                <th style="padding:8px; border:1px solid #ddd;">Diastolik (mmHg) angka bawah</th>
-            </tr>
-            <tr><td>Hipotensi (Rendah)</td><td>Kurang dari 90</td><td>Kurang dari 60</td></tr>
-            <tr><td>Normal</td><td>90 – 119</td><td>60 – 79</td></tr>
-            <tr><td>Meningkat</td><td>120 – 129</td><td>Kurang dari 80</td></tr>
-            <tr><td>Hipertensi Tahap 1</td><td>130 – 139</td><td>80 – 89</td></tr>
-            <tr><td>Hipertensi Tahap 2</td><td>≥ 140</td><td>≥ 90</td></tr>
-            <tr><td>Krisis Hipertensi (Darurat)</td><td>> 180</td><td>> 120</td></tr>
-        </table>
-        """, unsafe_allow_html=True)
 
         button_label_bp = "🔽 Tutup Detail Tekanan Darah" if st.session_state.show_details_bp else "📌 Lihat Detail Tekanan Darah"
         st.button(button_label_bp, on_click=toggle_details_bp, key="btn_bp")
@@ -152,6 +129,29 @@ def heart_disease_prediction_page():
                 </div>
                 """, unsafe_allow_html=True)
 
+        st.subheader("📌 Tekanan Darah")
+        st.markdown("""
+        Berikut adalah kategori tekanan darah menurut American Heart Association (dikutip dari [EatingWell](https://www.eatingwell.com/low-blood-pressure-symptoms-8580291)):
+        """)
+        st.subheader("📊 Kategori Tekanan Darah")
+        st.markdown("""
+        <table style="width:100%; border-collapse: collapse; border-radius: 10px; overflow: hidden; border:1px solid #ddd;">
+            <tr style="background-color:#fce8eb;">
+                <th style="padding:8px; border:1px solid #ddd;">Kategori</th>
+                <th style="padding:8px; border:1px solid #ddd;">Sistolik (mmHg) angka atas</th>
+                <th style="padding:8px; border:1px solid #ddd;">Diastolik (mmHg) angka bawah</th>
+            </tr>
+            <tr><td>Hipotensi (Rendah)</td><td>Kurang dari 90</td><td>Kurang dari 60</td></tr>
+            <tr><td>Normal</td><td>90 – 119</td><td>60 – 79</td></tr>
+            <tr><td>Meningkat</td><td>120 – 129</td><td>Kurang dari 80</td></tr>
+            <tr><td>Hipertensi Tahap 1</td><td>130 – 139</td><td>80 – 89</td></tr>
+            <tr><td>Hipertensi Tahap 2</td><td>≥ 140</td><td>≥ 90</td></tr>
+            <tr><td>Krisis Hipertensi (Darurat)</td><td>> 180</td><td>> 120</td></tr>
+        </table>
+        """, unsafe_allow_html=True)
+
+
+
     # ================= KOLESTEROL =================
     if "show_details_chol" not in st.session_state:
         st.session_state.show_details_chol = False
@@ -166,8 +166,19 @@ def heart_disease_prediction_page():
         cholesterol = st.selectbox('Level Kolesterol', ('Normal', 'Di atas normal', 'Sangat tinggi'))
 
         st.info(
-            "ℹ️ Jika sudah ada hasil tes kolesterol, cocokkan nilainya dengan tabel di bawah. Jika belum ada, gunakan tombol 📌 Lihat Detail Kolesterol untuk menentukan kategori."
+            "ℹ️ Jika sudah ada hasil tes kolesterol, cocokkan nilainya dengan tabel di bawah. Jika belum ada, gunakan tombol **Lihat Detail Kolesterol** untuk menentukan kategori."
         )
+
+        button_label_chol = "🔽 Tutup Detail Kolesterol" if st.session_state.show_details_chol else "📌 Lihat Detail Kolesterol"
+        st.button(button_label_chol, on_click=toggle_details_chol, key="btn_chol")
+
+        if st.session_state.show_details_chol:
+            st.markdown("""
+            <br>
+            <div style="padding:12px; background-color:#fff7f7; border-left:5px solid #ff4d6d; border-radius:8px;">
+                <p>ℹ️ Kolesterol biasanya tidak menimbulkan gejala, sehingga diperlukan tes darah untuk mengetahui kategori sebenarnya.
+                <br>Jika Anda belum melakukan tes, Anda tetap bisa pilih kategori sesuai kondisi, misalnya kolesterol agak tinggi. Nanti aplikasi akan memperkirakan berapa persen tingkat risikonya, dengan mempertimbangkan data lainnya.</p>
+            """, unsafe_allow_html=True)
 
         st.subheader("📊 Kategori Kolesterol")
         st.markdown("""
@@ -207,18 +218,6 @@ def heart_disease_prediction_page():
         </table>
         """, unsafe_allow_html=True)
 
-
-        button_label_chol = "🔽 Tutup Detail Kolesterol" if st.session_state.show_details_chol else "📌 Lihat Detail Kolesterol"
-        st.button(button_label_chol, on_click=toggle_details_chol, key="btn_chol")
-
-        if st.session_state.show_details_chol:
-            st.markdown("""
-            <br>
-            <div style="padding:12px; background-color:#fff7f7; border-left:5px solid #ff4d6d; border-radius:8px;">
-                <p>ℹ️ Kolesterol biasanya tidak menimbulkan gejala, sehingga diperlukan tes darah untuk mengetahui kategori sebenarnya.
-                <br>Jika Anda belum melakukan tes, Anda tetap bisa pilih kategori sesuai kondisi, misalnya kolesterol agak tinggi. Nanti aplikasi akan memperkirakan berapa persen tingkat risikonya, dengan mempertimbangkan data lainnya.</p>
-            """, unsafe_allow_html=True)
-
     # ================= GULA DARAH =================
     if "show_details_gluc" not in st.session_state:
         st.session_state.show_details_gluc = False
@@ -233,34 +232,8 @@ def heart_disease_prediction_page():
         gluc = st.selectbox('Level Gula Darah', ('Normal', 'Di atas normal', 'Sangat tinggi'))
 
         st.info(
-            "ℹ️ Jika sudah ada hasil tes gula darah, cocokkan nilainya dengan tabel di bawah. Jika belum ada, gunakan tombol 📌 Lihat Detail Gula Darah untuk menentukan kategori."
+            "ℹ️ Jika sudah ada hasil tes gula darah, cocokkan nilainya dengan tabel di bawah. Jika belum ada, gunakan tombol **Lihat Detail Gula Darah** untuk menentukan kategori."
         )
-
-        st.subheader("📊 Kategori Gula Darah Untuk Dewasa")
-        st.markdown("""
-            <table style="width:100%; border-collapse: collapse; border-radius: 10px; overflow: hidden; border:1px solid #ddd; text-align:center;">
-                <tr style="background-color:#fce8eb;">
-                    <th style="padding:8px; border:1px solid #ddd;">Kategori</th>
-                    <th style="padding:8px; border:1px solid #ddd;">Nilai Puasa (mg/dL)<br><small>Setelah 8 jam tidak makan</small></th>
-                    <th style="padding:8px; border:1px solid #ddd;">Nilai 2 Jam Setelah Makan (mg/dL)</th>
-                </tr>
-                <tr style="background-color:#f9f9f9;">
-                    <td style="padding:8px; border:1px solid #ddd;">Normal/Optimal</td>
-                    <td style="padding:8px; border:1px solid #ddd;">70 – 90</td>
-                    <td style="padding:8px; border:1px solid #ddd;">Kurang dari 140</td>
-                </tr>
-                <tr style="background-color:#ffffff;">
-                    <td style="padding:8px; border:1px solid #ddd;">Pra-Diabetes</td>
-                    <td style="padding:8px; border:1px solid #ddd;">100 – 125</td>
-                    <td style="padding:8px; border:1px solid #ddd;">140 – 180</td>
-                </tr>
-                <tr style="background-color:#f9f9f9;">
-                    <td style="padding:8px; border:1px solid #ddd;">Diabetes</td>
-                    <td style="padding:8px; border:1px solid #ddd;">≥ 126</td>
-                    <td style="padding:8px; border:1px solid #ddd;">Lebih dari 200</td>
-                </tr>
-            </table>
-            """, unsafe_allow_html=True)
 
         button_label_gluc = "🔽 Tutup Detail Gula Darah" if st.session_state.show_details_gluc else "📌 Lihat Detail Gula Darah"
         st.button(button_label_gluc, on_click=toggle_details_gluc, key="btn_gluc")
@@ -295,6 +268,32 @@ def heart_disease_prediction_page():
                 </ul>
                 </div>
                 """, unsafe_allow_html=True)
+
+        st.subheader("📊 Kategori Gula Darah Untuk Dewasa")
+        st.markdown("""
+            <table style="width:100%; border-collapse: collapse; border-radius: 10px; overflow: hidden; border:1px solid #ddd; text-align:center;">
+                <tr style="background-color:#fce8eb;">
+                    <th style="padding:8px; border:1px solid #ddd;">Kategori</th>
+                    <th style="padding:8px; border:1px solid #ddd;">Nilai Puasa (mg/dL)<br><small>Setelah 8 jam tidak makan</small></th>
+                    <th style="padding:8px; border:1px solid #ddd;">Nilai 2 Jam Setelah Makan (mg/dL)</th>
+                </tr>
+                <tr style="background-color:#f9f9f9;">
+                    <td style="padding:8px; border:1px solid #ddd;">Normal/Optimal</td>
+                    <td style="padding:8px; border:1px solid #ddd;">70 – 90</td>
+                    <td style="padding:8px; border:1px solid #ddd;">Kurang dari 140</td>
+                </tr>
+                <tr style="background-color:#ffffff;">
+                    <td style="padding:8px; border:1px solid #ddd;">Pra-Diabetes</td>
+                    <td style="padding:8px; border:1px solid #ddd;">100 – 125</td>
+                    <td style="padding:8px; border:1px solid #ddd;">140 – 180</td>
+                </tr>
+                <tr style="background-color:#f9f9f9;">
+                    <td style="padding:8px; border:1px solid #ddd;">Diabetes</td>
+                    <td style="padding:8px; border:1px solid #ddd;">≥ 126</td>
+                    <td style="padding:8px; border:1px solid #ddd;">Lebih dari 200</td>
+                </tr>
+            </table>
+            """, unsafe_allow_html=True)
 
     # ================= KEBIASAAN =================
     with st.expander("🚬 Kebiasaan & Aktivitas", expanded=False):
@@ -375,7 +374,7 @@ def heart_disease_prediction_page():
         else:
             color, level = "#A91D3A", "Risiko Tinggi"
 
-        st.markdown(f"<span style='color:{color}; font-weight:bold;'>Probabilitas Anda terkena penyakit kardiovaskular adalah {probability:.2f}% ({level})</span>", unsafe_allow_html=True)
+        st.markdown(f"<span style='color:{color}; font-weight:bold;'>Probabilitas Anda terkena risiko kardiovaskular adalah {probability:.2f}% ({level})</span>", unsafe_allow_html=True)
 
         if probability > 40:
             st.warning("🚨 Risiko cukup tinggi (>40%). Disarankan segera memeriksakan diri ke tenaga medis.")

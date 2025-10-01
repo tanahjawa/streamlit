@@ -4,7 +4,7 @@ def introduction_page():
     # --- Judul Utama ---
     st.markdown("""
     <div style='text-align:center;'>
-        <h1 style='color:#002C54;'>💓 Deteksi Dini Penyakit Kardiovaskular</h1>
+        <h1 style='color:#002C54;'>Deteksi Dini Risiko Kardiovaskular</h1>
         <p style='font-size:18px;'>Aplikasi ini membantu Anda memahami risiko penyakit kardiovaskular dan memberikan informasi penting seputar jantung dan pembuluh darah.</p>
     </div>
     """, unsafe_allow_html=True)

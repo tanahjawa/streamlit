@@ -38,7 +38,14 @@ def about_the_dataset():
         st.title("🧪 Informasi Edukatif")
 
         # Tabs
-        tab1, tab2, tab3 = st.tabs(["🫀 Tekanan Darah", "🧬 Kolesterol", "🍬 Gula Darah"])
+        tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+            "🫀 Tekanan Darah", 
+            "🧬 Kolesterol", 
+            "🍬 Gula Darah", 
+            "🚬 Merokok", 
+            "🍷 Alkohol", 
+            "🏃‍♂️ Aktivitas"
+        ])
 
         # ===============================
         # TAB TEKANAN DARAH
@@ -445,5 +452,132 @@ def about_the_dataset():
 
                     except ValueError:
                         st.error("❌ Masukkan hanya angka yang valid.")
+        
+        # ===============================
+        # TAB MEROKOK
+        # ===============================
+        with tab4:
+            st.subheader("📌 Dampak Merokok")
+            st.markdown("""
+            Merokok memiliki banyak efek buruk pada tubuh, terutama sistem kardiovaskular:
+            
+            1. **Peningkatan Risiko Hipertensi**  
+            Nikotin merangsang sistem saraf simpatik → melepaskan hormon adrenalin → meningkatkan denyut jantung dan tekanan darah.  
+            🔗 [Sumber](https://pmc.ncbi.nlm.nih.gov/articles/PMC3755365/)
+            
+            2. **Kolesterol Tinggi**  
+            Zat kimia dalam rokok menyebabkan penyempitan pembuluh darah & meningkatkan kadar kolesterol jahat (LDL).  
+            🔗 [Sumber](https://healthmatch.io/cholesterol/does-smoking-cause-high-cholesterol#what-is-cholesterol)
+            
+            3. **Penyakit Jantung & Stroke**  
+            Rokok merusak pembuluh darah → memicu penyumbatan arteri.  
+            🔗 [Sumber](https://www.emc.id/id/care-plus/pengaruh-rokok-terhadap-gangguan-pembuluh-darah-tepi)
+            
+            4. **Risiko Diabetes**  
+            Nikotin membuat sel kurang responsif terhadap insulin → kadar gula darah sulit terkendali.  
+            🔗 [Sumber](https://www.fda.gov/tobacco-products/health-effects-tobacco-use/how-smoking-can-increase-risk-and-affect-diabetes)
+            """)
+
+            st.warning("⚠️ Tidak ada tingkat merokok yang aman — berhenti merokok sepenuhnya adalah pilihan terbaik.")
+
+            # Tambahan Tips Berhenti Merokok
+            st.markdown("### 🚭 Tips Berhenti Merokok")
+            st.info("""
+            Berikut beberapa langkah yang dapat membantu Anda berhenti merokok:
+            
+            - 🎯 **Tetapkan Tekad**: Buat komitmen kuat untuk berhenti.  
+            - 🗑️ **Buat Rencana**: Buang semua rokok & korek dari sekitar Anda.  
+            - 🍬 **Pengganti Sehat**: Gunakan permen karet, permen bebas gula, atau lakukan aktivitas fisik.  
+            - 👨‍👩‍👧 **Cari Dukungan**: Minta bantuan keluarga, teman, atau tenaga ahli.  
+            - 💊 **Gunakan Terapi**: Pertimbangkan *Nicotine Replacement Therapy* (NRT) atau obat dari dokter.  
+            - 🚫 **Hindari Pemicu**: Jauhi alkohol, kafein, atau suasana yang mendorong untuk merokok.  
+            - 🧹 **Bersihkan Lingkungan**: Hilangkan bau rokok dari rumah, mobil, dan barang pribadi.  
+            """)
+
+            # Tambahkan link sumber dengan tampilan cantik
+            st.markdown("""
+            <div style="padding: 12px; border-radius: 10px; background-color: #e6f7ff; border: 1px solid #91d5ff; text-align: center;">
+                🔗 Untuk tips lebih lanjut, baca di 
+                <a href="https://www.klikdokter.com/info-sehat/kesehatan-umum/cara-efektif-berhenti-merokok" target="_blank" style="color: #0066cc; font-weight: bold; text-decoration: none;">
+                Klikdokter - Cara Efektif Berhenti Merokok
+                </a>
+            </div>
+            """, unsafe_allow_html=True)
+
+            
+        # ===============================
+        # TAB ALKOHOL
+        # ===============================
+        with tab5:
+            st.subheader("📌 Dampak Alkohol")
+            st.markdown("""
+            Konsumsi alkohol berlebihan dapat memengaruhi kesehatan jantung:
+            
+            1. **Tekanan Darah Tinggi**  
+            Semakin tinggi konsumsi alkohol, semakin tinggi pula tekanan darah; bahkan konsumsi sedang yang teratur dapat meningkatkan tekanan darah, sehingga pembatasan alkohol direkomendasikan untuk mengelola hipertensi.  
+            🔗 [Sumber](https://www.palmerlakerecovery.com/alcohol-abuse-and-addiction/impact-on-cardiovascular-health/)
+            
+            2. **Risiko Stroke**  
+            konsumsi alkohol yang terbatas berpotensi memberikan efek perlindungan terhadap risiko stroke, namun konsumsi berlebihan meningkatkan risiko stroke iskemik (akibat penyumbatan pembuluh darah otak) dan stroke hemoragik (akibat pecahnya pembuluh darah).  
+            🔗 [Sumber](https://www.palmerlakerecovery.com/alcohol-abuse-and-addiction/impact-on-cardiovascular-health/)
+            
+            3. **Risiko Serangan Jantung**  
+            konsumsi alkohol berlebihan, terutama pesta minuman keras, dapat menyebabkan peningkatan tekanan darah akut, yang membebani jantung dan dapat memicu serangan jantung.  
+            🔗 [Sumber](https://www.palmerlakerecovery.com/alcohol-abuse-and-addiction/impact-on-cardiovascular-health/)
+            """)
+
+            # Tambahan Tips Berhenti Alkohol
+            st.markdown("### 💡 Tips Berhenti Minum Alkohol")
+            st.info("""
+            Berikut beberapa langkah yang dapat membantu Anda berhenti minum alkohol:
+            
+            - 🧹 **Detoksifikasi**: Membersihkan tubuh dari pengaruh alkohol.  
+            - 👥 **Dukungan Sosial**: Mencari bantuan dari orang terdekat atau kelompok seperti *Alcoholics Anonymous*.  
+            - 💬 **Terapi & Konseling**: Mendapatkan bimbingan profesional untuk mengatasi kecanduan.  
+            - 🩺 **Konsultasi Medis**: Berkonsultasi dengan dokter untuk bantuan obat-obatan jika diperlukan.  
+            - 🏃 **Gaya Hidup Sehat**: Rutin berolahraga dan menjaga pola hidup sehat.  
+            - 🎨 **Kegiatan Positif**: Isi waktu luang dengan hobi baru.  
+            - 🚫 **Hindari Pemicu**: Jauhi lingkungan yang mendorong keinginan untuk minum.  
+            """)
+
+            # Card khusus untuk pesan utama
+            st.markdown("""
+                <div style="padding:15px; border-radius:12px; background-color:#e6f4ea; border:1px solid #a3d9a5; margin-top:15px; text-align:center;">
+                ⚠️ <b>Batasi konsumsi alkohol, utamakan gaya hidup sehat untuk melindungi jantung.</b><br><br>
+                ✅ <span style="color:#0f5132; font-weight:bold;">Pilihan terbaik untuk kesehatan adalah tidak mengonsumsi alkohol sama sekali.</span>
+            </div>
+            """, unsafe_allow_html=True)
+
+            # Link sumber tambahan
+            st.markdown("""
+            <div style="padding: 12px; border-radius: 10px; background-color: #e6f7ff; border: 1px solid #91d5ff; text-align: center; margin-top:15px;">
+                🔗 Untuk tips lebih lanjut, baca di 
+                <a href="https://ciputrahospital.com/cara-mengatasi-kecanduan-alkohol/" target="_blank" style="color: #0066cc; font-weight: bold; text-decoration: none;">
+                Ciputra Hospital - Cara Mengatasi Kecanduan Alkohol
+                </a>
+            </div>
+            """, unsafe_allow_html=True)
+
+
+        # ===============================
+        # TAB AKTIVITAS
+        # ===============================
+        with tab6:
+            st.subheader("📌 Pentingnya Aktivitas Fisik")
+            st.markdown("""
+            Aktivitas fisik sangat penting untuk menjaga kesehatan jantung & metabolisme:
+            
+            - ✅ Meningkatkan fungsi kardiovaskular  
+            - ✅ Menurunkan tekanan darah  
+            - ✅ Meningkatkan kolesterol HDL (baik)  
+            - ✅ Mengatur kadar gula darah  
+            - ✅ Menurunkan risiko obesitas & peradangan  
+            - ✅ Meningkatkan kesehatan mental  
+            
+            🔗 [Sumber](https://ukhealthcare.uky.edu/wellness-community/blog/essential-role-exercise-cardiovascular-wellness)
+            """)
+            
+            st.info("🏋️ Latihan angkat beban terbukti membantu kontrol gula darah pada penderita diabetes tipe 2.")
+
 if __name__ == "__main__":
     about_the_dataset()
