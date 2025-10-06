@@ -14,9 +14,16 @@ def introduction_page():
     with col3:
         st.image("heart2.png", width=400)
         st.markdown(
-            '<div style="text-align: center; font-size: 14px; color: gray;">'
-            'Sumber: <a href="https://www.healthdirect.gov.au/circulatory-system" target="_blank">Healthdirect</a>'
-            '</div>',
+            """
+            <div style="text-align: center; font-size: 14px;">
+                Sumber: 
+                <a href="https://www.healthdirect.gov.au/circulatory-system" 
+                target="_blank" 
+                style="color: #0066cc; text-decoration: none;">
+                Healthdirect
+                </a>
+            </div>
+            """,
             unsafe_allow_html=True
         )
   
@@ -107,10 +114,21 @@ def introduction_page():
         """, unsafe_allow_html=True)
 
     # --- Sumber ---
-    st.markdown("""
-    <hr style='border:1px solid #e63946'>
-    <p style='font-size:12px; text-align:center; color:gray;'>Sumber: <a href='https://world-heart-federation.org/what-is-cvd/' target='_blank'>World Heart Federation</a></p>
-    """, unsafe_allow_html=True)
+    st.markdown(
+        """
+        <hr style="border:1px solid #e63946;">
+        <p style="font-size:12px; text-align:center;">
+            Sumber: 
+            <a href="https://world-heart-federation.org/what-is-cvd/" 
+            target="_blank" 
+            style="color:#0066cc; text-decoration:none;">
+            World Heart Federation
+            </a>
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
 
 if __name__ == "__main__":
     introduction_page()

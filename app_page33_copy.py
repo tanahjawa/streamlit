@@ -381,6 +381,65 @@ def heart_disease_prediction_page():
         
         st.info("⚠️ Prediksi ini hanya untuk informasi awal, bukan pengganti pemeriksaan medis.")
 
+        # ================= PENJELASAN NILAI RISIKO =================
+        st.markdown("---")
+        if "show_info_qrisk" not in st.session_state:
+            st.session_state.show_info_qrisk = False
+
+        def toggle_qrisk_info():
+            st.session_state.show_info_qrisk = not st.session_state.show_info_qrisk
+
+        button_label_qrisk = "📖 Baca Penjelasan Nilai Risiko" if not st.session_state.show_info_qrisk else "🔽 Tutup Penjelasan"
+        st.button(button_label_qrisk, on_click=toggle_qrisk_info)
+
+        if st.session_state.show_info_qrisk:
+            st.markdown("""
+            Risiko kardiovaskular menggambarkan kemungkinan seseorang mengalami penyakit jantung atau pembuluh darah seperti **serangan jantung** atau **stroke** dalam jangka waktu tertentu.
+
+            > “It’s important to note that your risk of developing CVD is never zero and regardless of other risk factors, your risk naturally increases the older you get.”  
+            > — *Winchmore Hill Practice*
+
+            💡 **Artinya:**  
+            Risiko terkena penyakit kardiovaskular **tidak pernah benar-benar nol**, karena sistem jantung dan pembuluh darah bekerja terus-menerus sepanjang hidup.  
+            Selama jantung berdetak dan darah mengalir, risiko gangguan selalu ada — walaupun sangat kecil.
+
+            ---
+
+            🩺 **Jika hasil menunjukkan risiko yang sangat rendah (misalnya di bawah 1% seperti 0,99%)**  
+            👉 Itu berarti peluang mengalami serangan jantung atau stroke dalam 10 tahun ke depan **sangat kecil**.  
+            Namun, **risiko kecil bukan berarti nol**.
+
+            🔸 **Perhatikan juga sinyal tubuh:**  
+            Kadang muncul gejala ringan seperti:  
+            - Kepala terasa berat atau pusing di bagian depan dekat mata 🧠  
+            - Mudah lelah atau kurang fokus  
+            - Jantung berdebar ringan setelah minum kopi  
+
+            Biasanya hal ini **tidak berbahaya**, tapi bisa disebabkan oleh:  
+            - Kurang tidur 😴  
+            - Stres berlebih 😣  
+            - Konsumsi kafein berlebihan ☕
+
+            Gejala seperti ini hanyalah bentuk **“alarm” alami dari tubuh**, tanda bahwa sistem kardiovaskular sedang beradaptasi dan butuh istirahat.
+
+            ---
+
+            **📊 Kategori Risiko (QRISK2 – 10 tahun ke depan):**
+
+            | Kategori Risiko | Rentang QRISK2 | Penjelasan |
+            |------------------|----------------|-------------|
+            | 🟢 **Rendah** | `< 10%` | Kurang dari 1 dari 10 orang berisiko mengalami serangan jantung atau stroke dalam 10 tahun. |
+            | 🟡 **Sedang** | `10–20%` | Sekitar 1–2 dari 10 orang berisiko mengalami serangan jantung atau stroke dalam 10 tahun. |
+            | 🔴 **Tinggi** | `> 20%` | Lebih dari 2 dari 10 orang berisiko mengalami serangan jantung atau stroke dalam 10 tahun. |
+
+            ---
+
+            🔹 **Kesimpulan:**  
+            Tidak ada risiko 0%. Semua orang memiliki risiko kardiovaskular, hanya saja tingkatnya bisa **sangat rendah**.  
+            Bahkan gejala ringan seperti **kepala terasa cenut-cenut** bisa menjadi tanda kecil dari sistem pembuluh darah yang memberi sinyal, meskipun belum tentu berbahaya.
+            """, unsafe_allow_html=True)
+
+
 
 if __name__ == "__main__":
     heart_disease_prediction_page()
