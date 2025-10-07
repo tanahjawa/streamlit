@@ -397,7 +397,7 @@ def heart_disease_prediction_page():
             Risiko kardiovaskular menggambarkan kemungkinan seseorang mengalami penyakit jantung atau pembuluh darah seperti **serangan jantung** atau **stroke** dalam jangka waktu tertentu.
 
             > “It’s important to note that your risk of developing CVD is never zero and regardless of other risk factors, your risk naturally increases the older you get.”  
-            > — *Winchmore Hill Practice*
+            > — *Winchmore Hill Practice* <a href='https://www.winchmorehillpractice.nhs.uk/2021/09/08/cardiovascular-risk-score-qrisk2-patient-information-leaflet/' target='_blank' style='text-decoration:none;'>🔗</a>
 
             💡 **Artinya:**  
             Risiko terkena penyakit kardiovaskular **tidak pernah benar-benar nol**, karena sistem jantung dan pembuluh darah bekerja terus-menerus sepanjang hidup.  

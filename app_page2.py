@@ -31,12 +31,29 @@ def about_the_dataset():
     # # ---------- Sidebar ----------
     # st.sidebar.title("📚 Menu")
     # menu = st.sidebar.radio("Pilih Halaman:", ["Informasi Edukatif"], key="menu_radio")
+# def heart_disease_prediction_page():
+#     st.title("Prediksi Risiko Kardiovaskular")
+#     st.markdown("""
+#     Faktor risiko penyakit kardiovaskular meliputi kondisi dan kebiasaan yang memengaruhi kesehatan jantung.
+#     """)
 
+#     st.header("🔎 Masukkan Faktor Risiko Kesehatan")
 
     st.title("🧪 Informasi Edukatif")
-
+    st.markdown("""
+    <p>Berikut beberapa
+    <a href='https://www.nhs.uk/conditions/cardiovascular-disease/' 
+    target='_blank' style='color:#1a73e8; text-decoration:none;'>faktor</a> 
+    risiko penyakit kardiovaskular yang perlu diperhatikan.
+    </p>
+    """, unsafe_allow_html=True)
+    
     # Tabs
-    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+    tab0, tab00, tab000, tab0000, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+        "📅 Usia", 
+        "👶 Umur", 
+        "📏 Tinggi Badan", 
+        "⚖️ Berat Badan",
         "🫀 Tekanan Darah", 
         "🧬 Kolesterol", 
         "🍬 Gula Darah", 
@@ -44,6 +61,88 @@ def about_the_dataset():
         "🍷 Alkohol", 
         "🏃‍♂️ Aktivitas"
     ])
+
+    # ===============================
+    # TAB USIA
+    # ===============================
+    with tab0:
+        st.subheader("📌 Edukasi Usia")
+        st.markdown("""
+        Usia merupakan salah satu faktor risiko yang **tidak dapat diubah** dalam penyakit kardiovaskular.
+        Semakin bertambah usia seseorang, semakin tinggi risiko kerusakan pada pembuluh darah dan jantung.
+        <br><br>
+        Menurut <a href='https://www.heart.org/en/health-topics/consumer-healthcare/what-is-cardiovascular-disease/risk-factors-for-cardiovascular-disease' 
+        target='_blank' style='color:#1a73e8;'>American Heart Association (AHA)</a>, risiko meningkat tajam setelah usia:
+        <ul>
+            <li>🔹 <b>Pria:</b> di atas 45 tahun</li>
+            <li>🔹 <b>Wanita:</b> di atas 55 tahun atau setelah menopause</li>
+        </ul>
+        Pertahankan gaya hidup aktif, pola makan sehat, dan pemeriksaan kesehatan rutin sejak dini.
+        """, unsafe_allow_html=True)
+
+    # ===============================
+    # TAB UMUR
+    # ===============================
+    with tab00:
+        st.subheader("📌 Edukasi Umur dan Tahapan Risiko")
+        st.markdown("""
+        Walaupun usia kronologis penting, **usia biologis** (seberapa sehat tubuh Anda sebenarnya) juga berperan besar.  
+        Orang muda dengan gaya hidup tidak sehat dapat memiliki risiko jantung yang sama dengan orang yang jauh lebih tua.
+        <br><br>
+        Menurut penelitian <a href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8560503/' target='_blank' style='color:#1a73e8;'>National Institutes of Health (NIH)</a>:
+        <ul>
+            <li>🔹 Gaya hidup aktif dapat memperlambat penuaan biologis jantung hingga 10 tahun.</li>
+            <li>🔹 Pola makan tinggi sayur dan rendah garam membantu menjaga elastisitas pembuluh darah.</li>
+        </ul>
+        Jadi, umur hanyalah angka — yang penting adalah kondisi tubuh sebenarnya.
+        """, unsafe_allow_html=True)
+
+    # ===============================
+    # TAB TINGGI BADAN
+    # ===============================
+    with tab000:
+        st.subheader("📌 Edukasi Tinggi Badan dan Risiko Kardiovaskular")
+        st.markdown("""
+        Penelitian menunjukkan bahwa **orang dengan tinggi badan lebih rendah** sedikit lebih berisiko terkena penyakit jantung dibanding yang lebih tinggi.  
+        Namun, ini bukan penyebab langsung — melainkan berkaitan dengan faktor genetik dan metabolik.
+        <br><br>
+        Menurut <a href='https://www.bmj.com/content/349/bmj.g5500' target='_blank' style='color:#1a73e8;'>British Medical Journal (BMJ)</a>:
+        <ul>
+            <li>🔹 Setiap tambahan 6 cm tinggi badan dikaitkan dengan penurunan risiko penyakit jantung sekitar 10%.</li>
+            <li>🔹 Namun gaya hidup sehat tetap menjadi faktor pelindung utama bagi semua tinggi badan.</li>
+        </ul>
+        """, unsafe_allow_html=True)
+
+    # ===============================
+    # TAB BERAT BADAN
+    # ===============================
+    with tab0000:
+        st.subheader("📌 Edukasi Berat Badan dan Kesehatan Jantung")
+        st.markdown("""
+        Berat badan memengaruhi tekanan darah, kadar kolesterol, dan gula darah.  
+        **Kelebihan berat badan (overweight)** atau **obesitas** meningkatkan risiko penyakit jantung dan stroke.
+        <br><br>
+        Indeks Massa Tubuh (IMT) dapat digunakan untuk menilai kategori berat badan:
+        """, unsafe_allow_html=True)
+
+        st.markdown("""
+        <table style="width:70%; border-collapse: collapse; border:1px solid #ddd; text-align:center;">
+            <tr style="background-color:#fce8eb;">
+                <th>Kategori</th><th>Indeks Massa Tubuh (IMT)</th>
+            </tr>
+            <tr><td>Kurus</td><td> &lt; 18.5 </td></tr>
+            <tr><td>Normal</td><td> 18.5 – 24.9 </td></tr>
+            <tr><td>Kelebihan Berat Badan</td><td> 25 – 29.9 </td></tr>
+            <tr><td>Obesitas</td><td> ≥ 30 </td></tr>
+        </table>
+        """, unsafe_allow_html=True)
+
+        st.markdown("""
+        <br>
+        Untuk menghitung IMT:
+        \n\n**IMT = Berat Badan (kg) / (Tinggi Badan (m))²**
+        \n\nContoh: Berat 70 kg, tinggi 1.70 m → **IMT = 70 / (1.70²) = 24.2 (Normal)**
+        """)
 
     # ===============================
     # TAB TEKANAN DARAH
