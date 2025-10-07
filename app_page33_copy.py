@@ -34,9 +34,10 @@ scaler = load_scaler()
 
 # Fungsi kategori probabilitas
 def prob(prediction_proba):
-    if prediction_proba < 0.5:
+    # Pastikan prediction_proba dalam skala 0–1
+    if prediction_proba < 0.10:
         return 'rendah'
-    elif prediction_proba < 0.75:
+    elif prediction_proba < 0.50:
         return 'sedang'
     else:
         return 'tinggi'
@@ -374,15 +375,24 @@ def heart_disease_prediction_page():
         else:
             color, level = "#A91D3A", "Risiko Tinggi"
 
-        st.markdown(f"<span style='color:{color}; font-weight:bold;'>Probabilitas Anda terkena risiko kardiovaskular adalah {probability:.2f}% ({level})</span>", unsafe_allow_html=True)
+        st.markdown(
+            f"<span style='color:{color}; font-weight:bold;'>Probabilitas Anda terkena risiko kardiovaskular adalah {probability:.2f}% ({level})</span>",
+            unsafe_allow_html=True
+        )
 
-        if probability > 40:
-            st.warning("🚨 Risiko cukup tinggi (>40%). Disarankan segera memeriksakan diri ke tenaga medis.")
-        
-        st.info("⚠️ Prediksi ini hanya untuk informasi awal, bukan pengganti pemeriksaan medis.")
+        # --- Pesan berdasarkan kategori risiko ---
+        if risk_level == "rendah":
+            st.info("✅ Risiko sangat kecil / jarang terjadi. Terus pertahankan gaya hidup sehat dengan menjaga pola makan, rutin berolahraga, dan menghindari stres berlebihan. Nilai ini menunjukkan kemungkinan pasien mengalami gangguan kardiovaskular berdasarkan prediksi model, bukan hasil diagnosis medis langsung.")
+
+        elif risk_level == "sedang":
+            st.warning("⚠️ Risiko sedang / kemungkinan mulai meningkat. Disarankan untuk mulai memperhatikan kebiasaan sehari-hari seperti mengurangi konsumsi garam, berhenti merokok, dan menjaga berat badan ideal. Lakukan pemeriksaan rutin agar dapat memantau kondisi jantung lebih baik. Nilai ini menunjukkan kemungkinan pasien mengalami gangguan kardiovaskular berdasarkan prediksi model, bukan hasil diagnosis medis langsung.")
+
+        else:  # tinggi
+            st.error("🚨 Risiko tinggi / sangat mungkin terjadi. Segera konsultasikan dengan tenaga medis atau dokter spesialis jantung untuk pemeriksaan lebih lanjut. Terapkan gaya hidup sehat secara konsisten dan hindari faktor risiko seperti merokok, konsumsi alkohol, serta kurangnya aktivitas fisik. Nilai ini menunjukkan kemungkinan pasien mengalami gangguan kardiovaskular berdasarkan prediksi model, bukan hasil diagnosis medis langsung.")
+
 
         # ================= PENJELASAN NILAI RISIKO =================
-        st.markdown("---")
+        st.markdown("")
         if "show_info_qrisk" not in st.session_state:
             st.session_state.show_info_qrisk = False
 
@@ -439,7 +449,16 @@ def heart_disease_prediction_page():
             Bahkan gejala ringan seperti **kepala terasa cenut-cenut** bisa menjadi tanda kecil dari sistem pembuluh darah yang memberi sinyal, meskipun belum tentu berbahaya.
             """, unsafe_allow_html=True)
 
-
+        st.markdown(
+            """
+            <hr style="margin-top: 25px; margin-bottom: 10px;">
+            <div style="text-align: center; color: black; font-size: 16px; font-style: italic;">
+                ⚠️ Nilai tersebut menunjukkan tingkat risiko kardiovaskular berdasarkan <b>prediksi model</b>, 
+                bukan <b>diagnosis medis</b>.
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
 if __name__ == "__main__":
     heart_disease_prediction_page()

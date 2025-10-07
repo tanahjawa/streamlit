@@ -15,7 +15,7 @@ def main():
             options=["Introduction", "Informasi Edukasi", "Deteksi Kardiovaskular", "Chatbot"], 
             icons=['house', 'database', 'heart', 'robot'], 
             menu_icon="cast", 
-            default_index=0
+            default_index=2
         )
 
         # Spacer supaya GitHub ke bawah
