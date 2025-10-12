@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import re
-import plotly.graph_objects as go
+# import plotly.graph_objects as go
 # from app_page2 import about_the_dataset  # Tidak ada set_page_config di sini
 
 
