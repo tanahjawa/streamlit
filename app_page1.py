@@ -26,11 +26,17 @@ def introduction_page():
             """,
             unsafe_allow_html=True
         )
-  
-    st.markdown("""
-    <hr style='border:1px solid #e63946'>
-    """, unsafe_allow_html=True)
 
+        # --- 🔘 Tombol Menuju Halaman Deteksi Kardiovaskular ---
+        st.markdown("<br>", unsafe_allow_html=True)
+        if st.button("🩺 Menuju Halaman Deteksi Kardiovaskular", use_container_width=True):
+            st.session_state["selected_page"] = "Deteksi Kardiovaskular"
+            st.rerun()
+
+    # --- Garis Pemisah ---
+    st.markdown("<hr style='border:1px solid #e63946'>", unsafe_allow_html=True)
+
+    # --- Konten Informasi ---
     st.markdown("""
     Istilah **kardiovaskular** berasal dari gabungan dua kata, yaitu:
     - *Kardio* yang berarti jantung  
@@ -39,7 +45,7 @@ def introduction_page():
     st.write("""
     Dengan demikian, kardiovaskular secara keseluruhan merujuk pada sistem jantung dan pembuluh darah dalam tubuh manusia.
     """)
-    
+
     with st.expander("📌 Apa Itu Penyakit Kardiovaskular?", expanded=True):
         st.write("""
         Penyakit kardiovaskular mencakup berbagai kondisi yang menyerang jantung dan pembuluh darah, termasuk akibat faktor risiko seperti tekanan darah tinggi, pola hidup tidak sehat, diabetes, obesitas, dan faktor genetik.
