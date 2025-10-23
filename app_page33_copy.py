@@ -12,7 +12,7 @@ MODEL_PATH = "stacking5.pkl"
 SCALER_PATH = "scaler5.pkl"
 
 # link Google Drive (file di set "Anyone with the link" -> "Viewer")
-MODEL_URL = "https://drive.google.com/uc?id=1Ui20-Zc2LFB7egkxSPqz_timBVyInhY-"
+MODEL_URL = "https://drive.google.com/uc?id=1zYe3jM3U4_bovpx-_dJkUPjn0poHQwd9"
 SCALER_URL = "https://drive.google.com/uc?id=1quPoXkwtTJzt4IrztItNmPzUvM_mUr9X"
 
 @st.cache_resource
