@@ -76,7 +76,7 @@ def heart_disease_prediction_page():
     """)
 
     with st.expander("🩸 Tekanan Darah", expanded=st.session_state.expand_bp):
-        bp_input = st.text_input("Masukkan tekanan darah (contoh: 120/80)", value="", placeholder="Contoh Format: 120/80")
+        bp_input = st.text_input("Masukkan nilai tekanan darah (contoh: 120/80)", value="", placeholder="Contoh Format: 120/80")
         try:
             ap_hi, ap_lo = map(int, bp_input.split("/"))
         except:
@@ -86,7 +86,7 @@ def heart_disease_prediction_page():
 
         # 🆕 Tambahkan penjelasan singkat di sini
         st.info(
-            "ℹ️ Inputkan nilai tekanan darah terkini (setelah tes). Jika belum ada, gunakan tombol **Lihat Detail Tekanan Darah** untuk menentukan nilainya."
+            "ℹ️ Inputkan nilai tekanan darah terkini (setelah tes). Jika belum ada, gunakan tombol **Lihat Detail Tekanan Darah** atau **Tabel Kategori Tekanan Darah** untuk menentukan nilainya."
         )
 
         button_label_bp = "🔽 Tutup Detail Tekanan Darah" if st.session_state.show_details_bp else "📌 Lihat Detail Tekanan Darah"
@@ -167,7 +167,7 @@ def heart_disease_prediction_page():
         cholesterol = st.selectbox('Level Kolesterol', ('Normal', 'Di atas normal', 'Sangat tinggi'))
 
         st.info(
-            "ℹ️ Jika sudah ada hasil tes kolesterol, cocokkan nilainya dengan tabel di bawah. Jika belum ada, gunakan tombol **Lihat Detail Kolesterol** untuk menentukan kategori."
+            "ℹ️ Jika sudah ada hasil tes kolesterol, cocokkan nilainya dengan tabel di bawah. Jika belum ada, gunakan tombol **Lihat Detail Kolesterol** atau **Tabel Kategori Kolesterol** untuk menentukan kategori."
         )
 
         button_label_chol = "🔽 Tutup Detail Kolesterol" if st.session_state.show_details_chol else "📌 Lihat Detail Kolesterol"
@@ -233,7 +233,7 @@ def heart_disease_prediction_page():
         gluc = st.selectbox('Level Gula Darah', ('Normal', 'Di atas normal', 'Sangat tinggi'))
 
         st.info(
-            "ℹ️ Jika sudah ada hasil tes gula darah, cocokkan nilainya dengan tabel di bawah. Jika belum ada, gunakan tombol **Lihat Detail Gula Darah** untuk menentukan kategori."
+            "ℹ️ Jika sudah ada hasil tes gula darah, cocokkan nilainya dengan tabel di bawah. Jika belum ada, gunakan tombol **Lihat Detail Gula Darah** atau **Tabel Kategori Gula Darah** untuk menentukan kategori."
         )
 
         button_label_gluc = "🔽 Tutup Detail Gula Darah" if st.session_state.show_details_gluc else "📌 Lihat Detail Gula Darah"
