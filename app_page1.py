@@ -5,7 +5,7 @@ def introduction_page():
     st.markdown("""
     <div style='text-align:center;'>
         <h1 style='color:#002C54;'>Deteksi Dini Risiko Kardiovaskular</h1>
-        <p style='font-size:18px;'>Aplikasi ini berfungsi sebagai  deteksi dini (skrining) untuk membantu pengguna memahami potensi risiko kesehatan terkait jantung dan pembuluh darah — bukan sebagai alat diagnosis medis.</p>
+        <p style='font-size:18px;'>Aplikasi ini berfungsi sebagai skrining awal untuk membantu pengguna mengenali potensi risiko penyakit kardiovaskular (jantung dan pembuluh darah) serta meningkatkan kesadaran akan pentingnya menjaga kesehatan risiko tersebut — <b>bukan sebagai alat medis atau diagnosis yang pasti</b>.</p>
     </div>
     """, unsafe_allow_html=True)
 
