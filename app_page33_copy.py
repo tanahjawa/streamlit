@@ -82,7 +82,7 @@ def heart_disease_prediction_page():
             if weight_input:
                 st.warning("⚠️ Masukkan angka yang valid untuk berat badan (contoh: 65).")
 
-        st.info("💡 Setelah mengetik nilai, tekan **Enter** untuk mengonfirmasi input.")
+        # st.info("💡 Setelah mengetik nilai, tekan **Enter** untuk mengonfirmasi input.")
 
 
     # ================= TEKANAN DARAH =================
