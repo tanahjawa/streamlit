@@ -9,16 +9,16 @@ from app_page33_copy import heart_disease_prediction_page
 def main():
     # Pastikan session_state punya key default
     if "selected_page" not in st.session_state:
-        st.session_state["selected_page"] = "Introduction"
+        st.session_state["selected_page"] = "Beranda"
 
     # Sidebar menu
     with st.sidebar:
         selected = option_menu(
             menu_title=None,
-            options=["Introduction", "Informasi Edukasi", "Deteksi Kardiovaskular", "Chatbot"],
+            options=["Beranda", "Informasi Edukasi", "Deteksi Kardiovaskular"],
             icons=['house', 'database', 'heart', 'robot'],
             menu_icon="cast",
-            default_index=["Introduction", "Informasi Edukasi", "Deteksi Kardiovaskular", "Chatbot"].index(
+            default_index=["Beranda", "Informasi Edukasi", "Deteksi Kardiovaskular"].index(
                 st.session_state["selected_page"]
             )
         )
@@ -28,7 +28,7 @@ def main():
             st.rerun()
 
     # --- Load page sesuai pilihan ---
-    if st.session_state["selected_page"] == "Introduction":
+    if st.session_state["selected_page"] == "Beranda":
         introduction_page()
     elif st.session_state["selected_page"] == "Informasi Edukasi":
         about_the_dataset()

@@ -53,10 +53,37 @@ def heart_disease_prediction_page():
 
     # ================= INPUT DATA =================
     with st.expander("👤 Data Pribadi", expanded=True):
-        age = st.slider('Umur (tahun)', 18, 90, 50)
+        age_input = st.text_input("Masukkan umur (tahun):", placeholder="Contoh: 45")
+        try:
+            age = int(age_input)
+        except:
+            age = 50
+            if age_input:
+                st.warning("⚠️ Masukkan angka yang valid untuk umur (contoh: 45).")
+
+        # Gender langsung setelah umur
         gender = st.selectbox('Jenis Kelamin', ('Laki-laki', 'Perempuan'))
-        height = st.slider('Tinggi Badan (cm)', 100, 250, 170)
-        weight = st.slider('Berat Badan (kg)', 30, 200, 70)
+
+        # Lanjut ke tinggi dan berat
+        height_input = st.text_input("Masukkan tinggi badan (cm):", placeholder="Contoh: 170")
+        weight_input = st.text_input("Masukkan berat badan (kg):", placeholder="Contoh: 65")
+
+        try:
+            height = float(height_input)
+        except:
+            height = 170
+            if height_input:
+                st.warning("⚠️ Masukkan angka yang valid untuk tinggi badan (contoh: 170).")
+
+        try:
+            weight = float(weight_input)
+        except:
+            weight = 70
+            if weight_input:
+                st.warning("⚠️ Masukkan angka yang valid untuk berat badan (contoh: 65).")
+
+        st.info("💡 Setelah mengetik nilai, tekan **Enter** untuk mengonfirmasi input.")
+
 
     # ================= TEKANAN DARAH =================
     if "show_details_bp" not in st.session_state:
