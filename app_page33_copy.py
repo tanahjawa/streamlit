@@ -45,9 +45,12 @@ def prob(prediction_proba):
 
 def heart_disease_prediction_page():
     st.title("Prediksi Risiko Kardiovaskular")
-    st.markdown("""
-    Aplikasi ini membantu Anda mengetahui **perkiraan risiko kardiovaskular** berdasarkan data kesehatan dasar.  
-    """)
+    # st.markdown("""
+    # Aplikasi ini membantu Anda mengetahui **perkiraan risiko kardiovaskular** berdasarkan data kesehatan dasar.  
+    # """)
+    st.info(
+    "ℹ️ Hasil prediksi ditampilkan secara **real-time** setiap kali Anda mengisi atau mengubah data."
+    )
 
     st.header("🔎 Masukkan Faktor Risiko Kesehatan")
 
@@ -61,10 +64,19 @@ def heart_disease_prediction_page():
             if age_input:
                 st.warning("⚠️ Masukkan angka yang valid untuk umur (contoh: 45).")
 
-        # Gender langsung setelah umur
-        gender = st.selectbox('Jenis Kelamin', ('Laki-laki', 'Perempuan'))
+        # Jenis Kelamin dengan keterangan "Pilih opsi"
+        gender = st.selectbox(
+            'Jenis Kelamin',
+            ('Pilih opsi', 'Laki-laki', 'Perempuan')
+        )
 
-        # Lanjut ke tinggi dan berat
+        # Pastikan model hanya membaca jika sudah dipilih
+        if gender == 'Pilih opsi':
+            gender_value = None  # model tidak menerima input ini
+        else:
+            gender_value = gender
+
+        # Input tinggi dan berat
         height_input = st.text_input("Masukkan tinggi badan (cm):", placeholder="Contoh: 170")
         weight_input = st.text_input("Masukkan berat badan (kg):", placeholder="Contoh: 65")
 
@@ -83,6 +95,7 @@ def heart_disease_prediction_page():
                 st.warning("⚠️ Masukkan angka yang valid untuk berat badan (contoh: 65).")
 
         # st.info("💡 Setelah mengetik nilai, tekan **Enter** untuk mengonfirmasi input.")
+
 
 
     # ================= TEKANAN DARAH =================
