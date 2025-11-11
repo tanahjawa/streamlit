@@ -15,10 +15,10 @@ def main():
     with st.sidebar:
         selected = option_menu(
             menu_title=None,
-            options=["Beranda", "Informasi Edukasi", "Deteksi Kardiovaskular"],
+            options=["Beranda", "Informasi Edukasi", "Prediksi Kardiovaskular"],
             icons=['house', 'database', 'heart', 'robot'],
             menu_icon="cast",
-            default_index=["Beranda", "Informasi Edukasi", "Deteksi Kardiovaskular"].index(
+            default_index=["Beranda", "Informasi Edukasi", "Prediksi Kardiovaskular"].index(
                 st.session_state["selected_page"]
             )
         )
@@ -32,7 +32,7 @@ def main():
         introduction_page()
     elif st.session_state["selected_page"] == "Informasi Edukasi":
         about_the_dataset()
-    elif st.session_state["selected_page"] == "Deteksi Kardiovaskular":
+    elif st.session_state["selected_page"] == "Prediksi Kardiovaskular":
         heart_disease_prediction_page()
     # elif st.session_state["selected_page"] == "Chatbot":
     #     chatbot_page()

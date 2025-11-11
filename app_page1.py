@@ -29,8 +29,8 @@ def introduction_page():
 
         # --- 🔘 Tombol Menuju Halaman Deteksi Kardiovaskular ---
         st.markdown("<br>", unsafe_allow_html=True)
-        if st.button("🩺 Menuju Halaman Deteksi Kardiovaskular", use_container_width=True):
-            st.session_state["selected_page"] = "Deteksi Kardiovaskular"
+        if st.button("🩺 Menuju Halaman Prediksi Kardiovaskular", use_container_width=True):
+            st.session_state["selected_page"] = "Prediksi Kardiovaskular"
             st.rerun()
 
     # --- Garis Pemisah ---
