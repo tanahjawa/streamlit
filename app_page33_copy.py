@@ -204,7 +204,7 @@ def heart_disease_prediction_page():
         st.session_state.expand_chol = True
 
     with st.expander("🥓 Kolesterol", expanded=st.session_state.expand_chol):
-        cholesterol = st.selectbox('Level Kolesterol', ('Normal', 'Di atas normal', 'Sangat tinggi'))
+        cholesterol = st.selectbox('Level Kolesterol', ('Normal', 'Tidak normal', 'Sangat tidak normal'))
 
         st.info(
             "ℹ️ Jika sudah ada hasil tes kolesterol, cocokkan nilainya dengan tabel di bawah. Jika belum ada, gunakan tombol **Lihat Detail Kolesterol** atau **Tabel Kategori Kolesterol** untuk menentukan kategori."
@@ -270,7 +270,7 @@ def heart_disease_prediction_page():
         st.session_state.expand_gluc = True
 
     with st.expander("🍬 Gula Darah", expanded=st.session_state.expand_gluc):
-        gluc = st.selectbox('Level Gula Darah', ('Normal', 'Di atas normal', 'Sangat tinggi'))
+        gluc = st.selectbox('Level Gula Darah', ('Normal', 'Tidak normal', 'Sangat tidak normal'))
 
         st.info(
             "ℹ️ Jika sudah ada hasil tes gula darah, cocokkan nilainya dengan tabel di bawah. Jika belum ada, gunakan tombol **Lihat Detail Gula Darah** atau **Tabel Kategori Gula Darah** untuk menentukan kategori."
