@@ -354,13 +354,13 @@ def heart_disease_prediction_page():
 
     chol_map = {
         'Normal': 'cholesterol_normal',
-        'Di atas normal': 'cholesterol_above_normal',
-        'Sangat tinggi': 'cholesterol_well_above_normal'
+        'Tidak normal': 'cholesterol_above_normal',
+        'Sangat tidak normal': 'cholesterol_well_above_normal'
     }
     gluc_map = {
         'Normal': 'gluc_normal',
-        'Di atas normal': 'gluc_above_normal',
-        'Sangat tinggi': 'gluc_well_above_normal'
+        'Tidak normal': 'gluc_above_normal',
+        'Sangat tidak normal': 'gluc_well_above_normal'
     }
 
     chol_encoded = {key: False for key in chol_map.values()}
